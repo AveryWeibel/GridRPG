@@ -14,6 +14,37 @@ class AGridRPGCharacter : public ACharacter
 public:
 	AGridRPGCharacter();
 
+	// Character Values 
+	int health;			// 100 default
+	int specialMeter;	// 100 default
+	int attack;			// 20 default
+	// placeholders are below in case we need to add in
+	bool defending;		// false default
+
+	/* Character Functions (Blueprintable!) */
+	// Decrease HP or increase HP given a negative value
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Update_Values")
+	void updateHealth(int dmgTaken);
+	// Flips the true / false state of defending
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Update_Values")
+	void flipDefendingState();  // flips the true / false state of defending
+
+	/* Set Functions */
+	// Set a new value for health. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Set_Values")
+	void setHealth(int value);
+	// Set a new value for special meter. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Set_Values")
+	void setSpecialMeter(int value);
+	// Set a new value for attack. default is 20
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Set_Values")
+	void setAttack(int value);
+
+	/* Debugging Functions */ 
+	// Outputs *self stats to the log
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Debugging")
+	void statsToLog();
+
 	// Called every frame.
 	virtual void Tick(float DeltaSeconds) override;
 
