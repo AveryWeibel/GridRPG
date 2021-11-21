@@ -55,6 +55,12 @@ AGridRPGCharacter::AGridRPGCharacter()
 	// Activate ticking in order to update the cursor every frame.
 	PrimaryActorTick.bCanEverTick = true;
 	PrimaryActorTick.bStartWithTickEnabled = true;
+
+	// Set Default Values for our character stats
+	health = 100;
+	attack = 20;
+	specialMeter = 100;
+	defending = false;
 }
 
 void AGridRPGCharacter::Tick(float DeltaSeconds)
@@ -87,4 +93,31 @@ void AGridRPGCharacter::Tick(float DeltaSeconds)
 			CursorToWorld->SetWorldRotation(CursorR);
 		}
 	}
+}
+
+// STAT SET Functions
+void AGridRPGCharacter::setHealth(int value) {
+	this->health = value;
+}
+
+void AGridRPGCharacter::setSpecialMeter(int value) {
+	this->specialMeter = value;
+}
+
+void AGridRPGCharacter::setAttack(int value) {
+	this->attack = value;
+}
+
+// STAT UPDATE Functions
+void AGridRPGCharacter::updateHealth(int dmgTaken) {
+	this->health -= dmgTaken;
+}
+
+void AGridRPGCharacter::flipDefendingState() {
+	this->defending = !this->defending;
+}
+
+void AGridRPGCharacter::statsToLog() {
+	// change LogTemp to something else if you wish to change where this appears
+	UE_LOG(LogTemp, Log, TEXT("Stats: \n HP: %d, ATTACK: %d, SPECIAL: %d, \n Defending? %s"), this->health, this->attack, this->specialMeter, this->defending);
 }
