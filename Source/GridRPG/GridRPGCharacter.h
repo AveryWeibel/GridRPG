@@ -15,14 +15,14 @@ public:
 	AGridRPGCharacter();
 
 	// Character Values 
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, DisplayName = "Current Health", Category = "Stats")
 	int health;			// 100 default
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, DisplayName = "Special Meter", Category = "Stats")
 	int specialMeter;	// 100 default
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, DisplayName = "Attack", Category = "Stats")
 	int attack;			// 20 default
 	// placeholders are below in case we need to add in
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(EditAnywhere, DisplayName = "Defending?", Category = "Stats")
 	bool defending;		// false default
 
 	/* Character Functions (Blueprintable!) */
