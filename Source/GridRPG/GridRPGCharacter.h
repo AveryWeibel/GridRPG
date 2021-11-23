@@ -44,6 +44,20 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Set_Values")
 	void setAttack(int value);
 
+	/* Get Functions */
+	// Get the health value. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getHealth();
+	// Get the Special Meter Amount. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getSpecial();
+	// Get Attack Value. default is 20
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getAttack();
+	// Get Defending? Boolean. default is false
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	bool getDefending();
+
 	/* Debugging Functions */ 
 	// Outputs *self stats to the log
 	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Debugging")

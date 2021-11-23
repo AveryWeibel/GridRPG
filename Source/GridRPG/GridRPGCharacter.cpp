@@ -108,6 +108,23 @@ void AGridRPGCharacter::setAttack(int value) {
 	this->attack = value;
 }
 
+// STAT GET Functions
+int AGridRPGCharacter::getHealth() {
+	return this->health;
+}
+
+int AGridRPGCharacter::getSpecial() {
+	return this->specialMeter;
+}
+
+int AGridRPGCharacter::getAttack() {
+	return this->attack;
+}
+
+bool AGridRPGCharacter::getDefending() {
+	return this->defending;
+}
+
 // STAT UPDATE Functions
 void AGridRPGCharacter::updateHealth(int dmgTaken) {
 	this->health -= dmgTaken;
