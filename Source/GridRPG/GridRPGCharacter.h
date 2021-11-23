@@ -15,10 +15,14 @@ public:
 	AGridRPGCharacter();
 
 	// Character Values 
+	UPROPERTY(EditAnywhere)
 	int health;			// 100 default
+	UPROPERTY(EditAnywhere)
 	int specialMeter;	// 100 default
+	UPROPERTY(EditAnywhere)
 	int attack;			// 20 default
 	// placeholders are below in case we need to add in
+	UPROPERTY(EditAnywhere)
 	bool defending;		// false default
 
 	/* Character Functions (Blueprintable!) */
