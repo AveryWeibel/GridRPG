@@ -15,10 +15,14 @@ public:
 	AGridRPGCharacter();
 
 	// Character Values 
+	UPROPERTY(EditAnywhere, DisplayName = "Current Health", Category = "Stats")
 	int health;			// 100 default
+	UPROPERTY(EditAnywhere, DisplayName = "Special Meter", Category = "Stats")
 	int specialMeter;	// 100 default
+	UPROPERTY(EditAnywhere, DisplayName = "Attack", Category = "Stats")
 	int attack;			// 20 default
 	// placeholders are below in case we need to add in
+	UPROPERTY(EditAnywhere, DisplayName = "Defending?", Category = "Stats")
 	bool defending;		// false default
 
 	/* Character Functions (Blueprintable!) */
@@ -39,6 +43,20 @@ public:
 	// Set a new value for attack. default is 20
 	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Set_Values")
 	void setAttack(int value);
+
+	/* Get Functions */
+	// Get the health value. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getHealth();
+	// Get the Special Meter Amount. default is 100
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getSpecial();
+	// Get Attack Value. default is 20
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	int getAttack();
+	// Get Defending? Boolean. default is false
+	UFUNCTION(BlueprintCallable, Category = "Character_Functions|Get_Values")
+	bool getDefending();
 
 	/* Debugging Functions */ 
 	// Outputs *self stats to the log
