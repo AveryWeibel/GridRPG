@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
+#include "GridTile.h"
 #include "CombatGridManager.generated.h"
 
 UCLASS()
@@ -14,6 +15,15 @@ class GRIDRPG_API ACombatGridManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ACombatGridManager();
+
+	UPROPERTY(EditDefaultsOnly, Category="GridProperties")
+	TSubclassOf<AGridTile> BPGridTile;
+
+	int8 static const gridSize = 5;
+	uint16 static const tileOffset = 250;
+
+	//Array of pointers to tile objects
+	AGridTile* GridArray[gridSize][gridSize];
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "TileBehaviors")
 		void UpdateTileColor(int32 newColor);
