@@ -94,18 +94,19 @@ void AGridRPGCharacter::Tick(float DeltaSeconds)
 			CursorToWorld->SetWorldRotation(CursorR);
 
 			//Try to get a tile from the hit object
-			AGridTile* hitTile = Cast<AGridTile>(TraceHitResult.Actor);
+			AGridTile* hitTile = Cast<AGridTile>(TraceHitResult.GetActor());
 
 			
 			AActor* hitActor = TraceHitResult.GetActor();
 			
-			if (hitActor) {
-				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Red, hitActor->GetName());
-			}
+
 
 			//Handle a tile
 			if (hitTile) {
 				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Green, TEXT("LineTrace hits a tile"));
+			}
+			else if (hitActor) {
+				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Red, hitActor->GetName());
 			}
 		}
 	}
