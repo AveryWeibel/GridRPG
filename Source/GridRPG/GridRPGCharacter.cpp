@@ -10,6 +10,7 @@
 #include "GameFramework/SpringArmComponent.h"
 #include "HeadMountedDisplayFunctionLibrary.h"
 #include "Materials/Material.h"
+#include "GridTile.h"
 #include "Engine/World.h"
 
 AGridRPGCharacter::AGridRPGCharacter()
@@ -91,6 +92,21 @@ void AGridRPGCharacter::Tick(float DeltaSeconds)
 			FRotator CursorR = CursorFV.Rotation();
 			CursorToWorld->SetWorldLocation(TraceHitResult.Location);
 			CursorToWorld->SetWorldRotation(CursorR);
+
+			//Try to get a tile from the hit object
+			AGridTile* hitTile = Cast<AGridTile>(TraceHitResult.Actor);
+
+			
+			AActor* hitActor = TraceHitResult.GetActor();
+			
+			if (hitActor) {
+				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Red, hitActor->GetName());
+			}
+
+			//Handle a tile
+			if (hitTile) {
+				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Green, TEXT("LineTrace hits a tile"));
+			}
 		}
 	}
 }

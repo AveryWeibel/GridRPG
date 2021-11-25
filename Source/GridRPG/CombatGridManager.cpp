@@ -51,10 +51,6 @@ void ACombatGridManager::BeginPlay()
 void ACombatGridManager::Tick(float DeltaTime)
 {
 	Super::Tick(DeltaTime);
-	//FVector thisLocation = GridArray[0][0]->GetActorLocation();
 
-	//thisLocation += FVector(500, 0, 0) * DeltaTime;
-
-	//GridArray[0][0]->SetActorLocation(thisLocation);
 }
 
