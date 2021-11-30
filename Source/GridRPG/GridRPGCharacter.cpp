@@ -103,10 +103,10 @@ void AGridRPGCharacter::Tick(float DeltaSeconds)
 
 			//Handle a tile
 			if (hitTile) {
-				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Green, TEXT("LineTrace hits a tile"));
+				//GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Green, TEXT("LineTrace hits a tile"));
 			}
 			else if (hitActor) {
-				GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Red, hitActor->GetName());
+				//GEngine->AddOnScreenDebugMessage(-1, .5, FColor::Red, hitActor->GetName());
 			}
 		}
 	}
